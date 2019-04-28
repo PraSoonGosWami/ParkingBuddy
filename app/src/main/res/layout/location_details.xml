@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.AppCompat.DayNight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="This is address"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"/>
+        <EditText
+            android:id="@+id/location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Area  for ex. Near Garia Metro"
+            android:layout_marginRight="8dp"
+            android:textColor="@android:color/black"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description (Optional)"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"/>
+        <EditText
+            android:id="@+id/location_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter description here"
+            android:layout_marginRight="8dp"
+
+            android:textColor="@android:color/black"
+            android:inputType="textImeMultiLine"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parking Slots"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"/>
+        <EditText
+            android:id="@+id/location_tSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter total slots here"
+            android:textColor="@android:color/black"
+            android:layout_marginRight="8dp"
+
+            android:inputType="number"
+            android:textSize="16sp"/>
+        <EditText
+            android:id="@+id/location_aSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+
+            android:hint="Enter available slots here"
+            android:layout_marginRight="8dp"
+
+            android:textColor="@android:color/black"
+            android:inputType="number"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parking Cost"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"/>
+        <EditText
+            android:id="@+id/location_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Type 'Free' for free parking"
+
+            android:textColor="@android:color/black"
+            android:inputType="textCapSentences"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/location_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginRight="8dp"
+
+            android:text="Add"
+            android:background="@drawable/button_solid_blue_rounded"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

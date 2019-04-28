@@ -1,0 +1,7 @@
+
+csquid:S1301‹"KReplace this "switch" statement by "if" statements to increase readability.(ºÖ
+Q"squid:SwitchLastCaseIsDefaultCheck‹""Add a default case to this switch.(ºÖ
+usquid:UselessImportCheck"KRemove this unused import 'com.google.firebase.database.DatabaseReference'.(ÉÓ¹8˜¥†Ğ¥-
+usquid:UselessImportCheck"JRemove this unused import 'com.google.firebase.database.FirebaseDatabase'.(×Ë—8åÇ†Ğ¥-
+esquid:S1192˜"MDefine a constant instead of duplicating this literal "translationX" 4 times.(ÇˆŞ¶
+Dsquid:S1604h"(Make this anonymous inner class a lambda(‚´´¢ùÿÿÿÿ

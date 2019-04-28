@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Activity.MainActivity">
+
+   <FrameLayout
+       android:id="@+id/frame_container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <RelativeLayout
+           android:id="@+id/main"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <com.ogaclejapan.smarttablayout.SmartTabLayout
+               android:id="@+id/viewpagertab"
+               android:layout_width="match_parent"
+               android:layout_height="54dp"
+               android:clipToPadding="false"
+               android:layout_marginTop="8dp"
+               android:paddingLeft="4dp"
+               android:paddingRight="4dp"
+               android:background="@color/colorPrimaryDark"
+               app:stl_dividerColor="@android:color/transparent"
+               app:stl_dividerThickness="0dp"
+               app:stl_indicatorAlwaysInCenter="true"
+               app:stl_defaultTabTextHorizontalPadding="30dp"
+               app:stl_indicatorCornerRadius="18dp"
+               app:stl_indicatorGravity="center"
+               app:stl_indicatorInterpolation="smart"
+               app:stl_indicatorThickness="26dp"
+               app:stl_underlineColor="@android:color/transparent"
+               app:stl_underlineThickness="0dp"
+               app:stl_defaultTabTextSize="16sp"
+               app:stl_indicatorColor="@color/colorAccent"
+               app:stl_titleOffset="auto_center"
+               app:stl_defaultTabTextColor="@android:color/black" />
+
+           <android.support.v4.view.ViewPager
+               android:id="@+id/viewpager"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_below="@id/viewpagertab" />
+
+
+           <android.support.design.widget.FloatingActionButton
+               android:id="@+id/add_new"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:layout_alignParentRight="true"
+               android:layout_margin="16dp"
+               android:backgroundTint="@color/colorAccent"
+               android:src="@drawable/ic_placeholder"
+               />
+       </RelativeLayout>
+
+
+
+   </FrameLayout>
+
+
+
+</RelativeLayout>

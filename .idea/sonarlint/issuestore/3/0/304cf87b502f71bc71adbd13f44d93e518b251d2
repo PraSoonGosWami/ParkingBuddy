@@ -1,0 +1,5 @@
+
+ysquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘‚²†8ŞæÅÏ¥-
+Jsquid:S1602z",Remove useless curly braces around statement(¢´íÜ8Æ­ÏĞ¥-
+osquid:S00116"RRename this field "add_new" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İùÜıÿÿÿÿ
+rsquid:S1450"VRemove the "add_new" field and declare it as a local variable in the relevant methods.(İùÜıÿÿÿÿ
