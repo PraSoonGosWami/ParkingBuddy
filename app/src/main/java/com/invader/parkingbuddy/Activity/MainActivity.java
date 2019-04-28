@@ -2,10 +2,12 @@ package com.invader.parkingbuddy.Activity;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -70,40 +72,44 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-        }Boolean gps_enabled = locationManager.isProviderEnabled("gps");
+        }
+        Boolean gps_enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         Boolean network_enabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-        if(!gps_enabled) {
+        if (!gps_enabled) {
             Toast.makeText(this, "Turn on Location", Toast.LENGTH_SHORT).show();
+            buildAlertMessageNoGps();
 
         }
-        if(!network_enabled){
+        if (!network_enabled) {
             Toast.makeText(this, "Turn on Network", Toast.LENGTH_SHORT).show();
         }
 
-        main.setVisibility(View.VISIBLE);
+        if (gps_enabled) {
+            main.setVisibility(View.VISIBLE);
 
-        add_new.setOnClickListener(v->{
-            swapFragments(new AddNewParkingFragment());
-            main.setVisibility(View.GONE);
-            getSupportActionBar().setTitle("Add new parking");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        });
+            add_new.setOnClickListener(v -> {
+                swapFragments(new AddNewParkingFragment());
+                main.setVisibility(View.GONE);
+                getSupportActionBar().setTitle("Add new parking");
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            });
 
-        SmartTabLayout viewPagerTab = findViewById(R.id.viewpagertab);
-        ViewPager viewPager = findViewById(R.id.viewpager);
+            SmartTabLayout viewPagerTab = findViewById(R.id.viewpagertab);
+            ViewPager viewPager = findViewById(R.id.viewpager);
 
-        //TabLayout Initialization
-        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
-                getSupportFragmentManager(), FragmentPagerItems.with(this)
-                .add("Near you", NearYouParkingFragment.class)
-                .add("All", AllParkingFragment.class)
-                .add("Your Contribution", UserContributionFragment.class)
-                .create());
+            //TabLayout Initialization
+            FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
+                    getSupportFragmentManager(), FragmentPagerItems.with(this)
+                    .add("Near you", NearYouParkingFragment.class)
+                    .add("All", AllParkingFragment.class)
+                    .add("Your Contribution", UserContributionFragment.class)
+                    .create());
 
-        //setting view pager adapter
-        viewPager.setAdapter(adapter);
-        viewPagerTab.setViewPager(viewPager);
+            //setting view pager adapter
+            viewPager.setAdapter(adapter);
+            viewPagerTab.setViewPager(viewPager);
+        }
 
     }
 
@@ -168,5 +174,26 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
 
 
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        Toast.makeText(MainActivity.this, "Restart your app again", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        dialog.cancel();
+                        finish();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 }
